@@ -4,7 +4,7 @@
   
 - Agora vai ser necessário entrar em uma distro linux:
   
-- Caso não tenha python:
+# Caso não tenha python:
 ```
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
@@ -13,7 +13,7 @@ sudo apt-get install python3.9
 # Instale a dependências
 - pip install grpcio grpcio-tools kazoo
 
-- Caso não tenha o Docker:
+# Caso não tenha o Docker:
 ```
 - # Add Docker's official GPG key:
 sudo apt-get update
@@ -33,3 +33,15 @@ sudo apt-get update
 
 - chmod +x run.sh
 - /run.sh
+
+# Caso não tenha o Java
+- sudo apt install default-jre
+
+# Inicie o servidor zookeeper
+- cd apache-zookeeper-3.8.4-bin\binz
+- ./zkServer.sh start-foreground
+
+# Agora é rodar os arquivos .py
+- python3 server.py localhost 8081
+- python3 client.py
+
