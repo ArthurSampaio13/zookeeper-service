@@ -1,5 +1,7 @@
 # zookeeper-service
 
+# Recomendo instalar [zsh](https://www.dio.me/articles/desvendando-a-eficiencia-no-terminal-zsh-oh-my-zsh)
+
 ## Como rodar:
   
 - Agora vai ser necessário entrar em uma distro linux:
