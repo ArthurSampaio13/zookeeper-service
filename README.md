@@ -1,7 +1,7 @@
 # zookeeper-service
 
-- Como rodar:
+## Como rodar:
   
-pip install -r requirements.txt
-chmod +x run.sh
-./run.sh
+-pip install -r requirements.txt
+-chmod +x run.sh
+-/run.sh
