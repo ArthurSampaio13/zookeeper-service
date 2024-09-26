@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package simple_calculate;
+
+// Define as operações disponíveis
+message Work {
+    int32 num1 = 1; // Primeiro número
+    int32 num2 = 2; // Segundo número
+    
+    enum Operation {
+        ADD = 0; // Adição
+        SUBTRACT = 1; // Subtração
+        MULTIPLY = 2; // Multiplicação
+        DIVIDE = 3; // Divisão
+    }
+    
+    Operation op = 3; // Operação a ser realizada
+}
+
+// Resultado da operação
+message Result {
+    int32 val = 1; // Valor resultante da operação
+}
+
+// Mensagem para representar um assunto
+message Subject {
+    string name = 1; // Nome do assunto
+}
+
+// Mensagem para tipos de questões, incluindo tópicos
+message QuestionType {
+    string name = 1; // Nome do tipo de questão
+    repeated string topics = 2; // Lista de tópicos associados ao tipo de questão
+}
+
+// Mensagem para valores a serem acumulados
+message Delta {
+    int32 val = 1; // Valor a ser adicionado
+}
+
+// Resultado da soma acumulada
+message Sum {
+    int32 val = 1; // Valor da soma total
+}
+
+// Mensagem para números a serem adivinhados
+message Number {
+    int32 val = 1; // Número a ser enviado
+}
+
+// Resposta da adivinhação
+message Answer {
+    int32 val = 1; // Número adivinhado
+    string desc = 2; // Descrição da resposta
+}
+
+// Definição do serviço RPC
+service SimpleRpcServer {
+    // RPC unário para calcular valores
+    rpc Calculate(Work) returns (Result) {}
+
+    // RPC de streaming do servidor para obter tipos de questões
+    rpc GetSubjectQuestionTypes(Subject) returns (stream QuestionType) {}
+
+    // RPC de streaming do cliente para acumular valores
+    rpc Accumulate(stream Delta) returns (Sum) {}
+
+    // RPC de streaming bidirecional para adivinhação de números
+    rpc GuessNumber(stream Number) returns (stream Answer) {}
+}
