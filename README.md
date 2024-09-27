@@ -1,6 +1,7 @@
 # zookeeper-service
 
 # Recomendo instalar [zsh](https://www.dio.me/articles/desvendando-a-eficiencia-no-terminal-zsh-oh-my-zsh)
+# Recomendo criar uma venv
 
 ## Como rodar:
   
